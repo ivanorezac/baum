@@ -119,6 +119,7 @@ abstract class Node extends Model {
     });
 
     static::saved(function($node) {
+      $node->storeNewParent();
       $node->moveToNewParent();
       $node->setDepth();
     });
